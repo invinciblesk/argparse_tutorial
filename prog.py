@@ -1,4 +1,5 @@
 import argparse
+parser = argparse.ArgumentParser()
 
 def calculate_square(square, verbosity=0):
     """
@@ -25,4 +26,16 @@ def calculate_power(x, y, verbosity=0):
         return str(answer)
     
 
+def calculate_power_verbose(x, y, verbosity=0):
+    """
+    Calculate the power of a given base and exponent with varying verbosity, including file name in verbose mode.
+    """
+    output = ""
+    answer = x ** y
+    if verbosity >= 2:
+        output += f"Running '{__file__}'\n"
+    if verbosity >= 1:
+        output += f"{x}^{y} == {answer}\n"
+    output += str(answer)
+    return output
 
