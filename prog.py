@@ -1,15 +1,28 @@
-
 import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("square", type=int,
-                    help="display a square of a given number")
-parser.add_argument("-v", "--verbosity", action="count", default=0,
-                    help="increase output verbosity")
-args = parser.parse_args()
-answer = args.square**2
-if args.verbosity >= 2:
-    print(f"the square of {args.square} equals {answer}")
-elif args.verbosity >= 1:
-    print(f"{args.square}^2 == {answer}")
-else:
-    print(answer)
+
+def calculate_square(square, verbosity=0):
+    """
+    Calculate the square of a given number with varying verbosity.
+    """
+    answer = square ** 2
+    if verbosity >= 2:
+        return f"The square of {square} equals {answer}"
+    elif verbosity >= 1:
+        return f"{square}^2 == {answer}"
+    else:
+        return str(answer)
+
+def calculate_power(x, y, verbosity=0):
+    """
+    Calculate the power of a given base and exponent with varying verbosity.
+    """
+    answer = x ** y
+    if verbosity >= 2:
+        return f"{x} to the power {y} equals {answer}"
+    elif verbosity >= 1:
+        return f"{x}^{y} == {answer}"
+    else:
+        return str(answer)
+    
+
+
