@@ -37,17 +37,22 @@ def calculate_power_verbose(x, y, verbosity=0):
     output += str(answer)
     return output
 
-def calculate_power_verbose_conflict_options(args, x, y, verbosity=0):
+def power_conflict(args, x, y, verbosity=0):
+    """
+    Calculate the power of a given base and exponent with support for quiet and verbose output modes.
+    """
     answer = x ** y
     if args.quiet:
         return str(answer)
     elif args.verbose:
         output = ""
-        if verbosity >= 2:
+        if args.verbosity >= 2:
             output += f"Running '{__file__}'\n"
-        if verbosity >= 1:
+        if args.verbosity >= 1:
             output += f"{x}^{y} == {answer}\n"
         return output
     else:
         return f"{x}^{y} == {answer}"
+    
+
     
