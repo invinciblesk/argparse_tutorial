@@ -1,5 +1,3 @@
-import argparse
-parser = argparse.ArgumentParser()
 
 def calculate_square(square, verbosity=0):
     """
@@ -39,3 +37,17 @@ def calculate_power_verbose(x, y, verbosity=0):
     output += str(answer)
     return output
 
+def calculate_power_verbose_conflict_options(args, x, y, verbosity=0):
+    answer = x ** y
+    if args.quiet:
+        return str(answer)
+    elif args.verbose:
+        output = ""
+        if verbosity >= 2:
+            output += f"Running '{__file__}'\n"
+        if verbosity >= 1:
+            output += f"{x}^{y} == {answer}\n"
+        return output
+    else:
+        return f"{x}^{y} == {answer}"
+    
